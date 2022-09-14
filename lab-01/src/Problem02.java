@@ -1,4 +1,4 @@
-public class problem02 {
+public class Problem02 {
     // Entry point
     public static void main(String[] args) {
         System.out.println("*********************");
