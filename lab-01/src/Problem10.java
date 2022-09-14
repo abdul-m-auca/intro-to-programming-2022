@@ -7,7 +7,16 @@
  that the current population is 312,032,486, and one year has 365 days.*/
 
 public class Problem10 {
-    public static void main(String[] args) {
+    double BirthInSeconds = 7.0;
+    double DeathInSeconds = 13.0;
+    double ImmigrantInSeconds = 45.0;
 
-    }
+    double CurrentPopulation = 312032486;
+
+    double SecondsInYears = 60 * 60 * 24 * 365;
+
+    double NumberOfBirths = SecondsInYears / BirthInSeconds;
+    double NumberOfDeaths = SecondsInYears / DeathInSeconds;
+    double NumberOfImmigrants = SecondsInYears / ImmigrantInSeconds;
+
 }
