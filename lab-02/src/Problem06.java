@@ -12,7 +12,7 @@ public class Problem06 {
 
         double Fahrenheit =9.0/5 *Celsius +32;
         // Display results
-        System.out.println(Celsius + " celsius is " + Fahrenheit + " Fahrenheit is ");
+        System.out.println(Celsius + " celsius is " + Fahrenheit + " Fahrenheit ");
 
     }
 }
