@@ -22,5 +22,12 @@ public class Problem05 {
         System.out.println(a + " / " +b + " = " + div);
         System.out.println(a + " % " +b + " = " + rem);
 
+        System.out.println("----------------");
+
+        System.out.printf("%.2f + %.2f = %2f%n",a , b, sum);
+        System.out.printf("%.2f - %.2f = %2f%n",a , b, sub);
+        System.out.printf("%.2f * %.2f = %2f%n",a , b, mul);
+        System.out.printf("%.2f / %.2f = %2f%n",a , b, div);
+        System.out.printf("%.2f %% %.2f = %2f%n",a , b, rem);
     }
 }
