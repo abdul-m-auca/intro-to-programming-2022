@@ -7,7 +7,7 @@ public class Problem02 {
 
         int sum = a + b;
 
-        System.out.println(a + "+" + b + " = " + sum);
+        System.out.println(a + b);
 
 
     }
