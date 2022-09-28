@@ -8,6 +8,8 @@ public class Problem09 {
 
         double v = Math.PI * r * r * h/ 3;
 
+        System.out.printf("%.2f%n", v);
+
 
     }
 }
