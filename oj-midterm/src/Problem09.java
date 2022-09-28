@@ -6,7 +6,8 @@ public class Problem09 {
         double r = input.nextDouble();
         double h = input.nextDouble();
 
-        double v = PI
+        double v = Math.PI * r * r * h/ 3;
+
 
     }
 }
