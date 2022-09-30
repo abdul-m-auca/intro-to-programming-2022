@@ -10,6 +10,10 @@ public class Problem01 {
         int b = input.nextInt();
 
         System.out.printf("Before swapping: a = %d, b = %d;%n",a, b);
+        int t = a;
+        a = b;
+        b = t;
+
         System.out.printf("After swapping: a = %d, b = %d;%n",a, b);
         
 
