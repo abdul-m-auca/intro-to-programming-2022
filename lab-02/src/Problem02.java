@@ -8,7 +8,6 @@ public class Problem02 {
         System.out.print("2nd value? ");
         int b = input.nextInt();
 
-
         System.out.printf("Before swapping: a = %d, b = %d;%n",a, b);
         System.out.printf("After swapping: a = %d, b = %d;%n",b, a);
     }
