@@ -7,7 +7,7 @@ public class Problem05 {
         int S = input.nextInt();
 
         int L = (R*8+S*3)-28;
-
+        //result
         System.out.println(L);
     }
 }
