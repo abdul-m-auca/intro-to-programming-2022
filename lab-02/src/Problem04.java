@@ -10,6 +10,6 @@ public class Problem04 {
 
         //results
 
-        System.out.println(inches + " in. " + "= " + centimeters + " cm.");
+        System.out.println(inches + "in. " + "= " + centimeters + " cm.");
     }
 }
