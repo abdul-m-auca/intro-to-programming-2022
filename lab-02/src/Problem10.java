@@ -8,7 +8,7 @@ public class Problem10 {
 
         int population = 312032486 + (((31536000 / 7) - (31536000 / 13)
                 + (31536000 / 45)) * years);
-        System.out.println("The population in " + years + "years is " + population);
+        System.out.println("The population in " + years + " years is " + population);
 
 
 
