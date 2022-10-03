@@ -9,6 +9,11 @@ public class Problem02 {
         int b = input.nextInt();
 
         System.out.printf("Before swapping: a = %d, b = %d;%n",a, b);
-        System.out.printf("After swapping: a = %d, b = %d;%n",b, a);
+        // here must swap
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+        System.out.printf("After swapping: a = %d, b = %d;%n",a, b);
     }
 }
