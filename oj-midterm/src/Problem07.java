@@ -9,6 +9,7 @@ public class Problem07 {
 
         int R2 = 2*S - R1;
 
+
         System.out.println(R2);
     }
 }
