@@ -8,7 +8,7 @@ public class Problem11 {
         int I = input.nextInt();
 
 
-        System.out.println((A*I)-(A-1));
+        System.out.println((I)-(A-1));
 
     }
 }
