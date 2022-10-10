@@ -7,6 +7,7 @@ public class Problem06 {
         int weightOfClass = input.nextInt();
         int lengthOfClass = input.nextInt();
         int tileLength = input.nextInt();
+
         weightOfClass = weightOfClass / tileLength;
         lengthOfClass = lengthOfClass / tileLength;
 
