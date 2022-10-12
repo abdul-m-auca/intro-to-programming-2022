@@ -8,7 +8,7 @@ public class Problem05 {
 
         double celsius = (fahrenheit-32)* 5/9;
 
-        System.out.printf("The temperature in degrees Celsius is "+ "%.2f%n", celsius);
+        System.out.printf("The temperature in degrees Celsius is %.2f%n ", celsius);
 
 
     }
