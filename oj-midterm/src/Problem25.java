@@ -5,7 +5,6 @@ public class Problem25 {
         Scanner input = new Scanner(System.in);
 
         String s = input.next();
-
         if (s.contains("ss")) {
             System.out.print("hiss");
         } else {
