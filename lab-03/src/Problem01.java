@@ -11,6 +11,7 @@ public class Problem01 {
 
         double x = input.nextDouble();
 
+        // CTRL-ALT-L
         double r = x;
 
         if (r < 0) {
