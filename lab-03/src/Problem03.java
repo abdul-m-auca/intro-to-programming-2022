@@ -34,6 +34,5 @@ public class Problem03 {
         System.out.printf("The value %d is the greatest one%n ", maxValue);
 
 //        System.out.printf("The value %d is the greatest one%n ", Math.max(a, Math.max(b, c)));
-
     }
 }
