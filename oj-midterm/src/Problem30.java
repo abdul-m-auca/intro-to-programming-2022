@@ -1,23 +1,26 @@
 import java.util.Scanner;
 
 public class Problem30 {
-    private static Scanner sc;
-
     public static void main(String[] args) {
 
-        double side1, side2, side3;
-        sc = new Scanner(System.in);
-        
-        side1 = sc.nextDouble();
-        side2 = sc.nextDouble();
-        side3 = sc.nextDouble();
+        Scanner input = new Scanner(System.in);
 
-        if (side1 == side2 && side2 == side3) {
-            System.out.println("It is an Equilateral Triangle");
-        } else if (side1 == side2 || side2 == side3 || side1 == side3) {
-            System.out.println("It is an Isosceles Triangle");
+        int angle1 = input.nextInt();
+        int angle2 = input.nextInt();
+        int angle3 = input.nextInt();
+
+        int sum = angle1 + angle2 + angle3;
+
+        if (sum > 180) {
+            System.out.println("error");
+        } else if (sum < 180) {
+            System.out.println("error");
+        } else if (angle1 == 60 && angle2 == 60 && angle3 == 60) {
+            System.out.println(" equilateral");
+        } else if (angle1 == angle2 || angle2 == angle3 || angle3 == angle1) {
+            System.out.println("isosceles");
         } else {
-            System.out.println("It is a Scalene Triangle");
+            System.out.println("scalene");
         }
     }
 }
