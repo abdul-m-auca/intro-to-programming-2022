@@ -14,6 +14,6 @@ public class Problem04 {
 
         //results
 
-        System.out.printf("%.2f in. = %.2f cm%n", inches, lengthInCm);
+        System.out.printf("%.2f in. = %.2f cm.%n", inches, lengthInCm);
     }
 }
