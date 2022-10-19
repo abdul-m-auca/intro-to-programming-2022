@@ -14,6 +14,7 @@ public class Problem23 {
         if (b < 45) {
             a = a - 1;
         }
+
         if (b < 45) {
             b = b + 60;
         }
