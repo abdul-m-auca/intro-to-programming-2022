@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class amoto {
+public class Problem08 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
