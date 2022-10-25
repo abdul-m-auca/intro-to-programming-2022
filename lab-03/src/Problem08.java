@@ -19,7 +19,7 @@ public class Problem08 {
             number2 = t;
         }
         if (number3 < number1) {
-            t = number3;
+            t = number1;
             number1 = number3;
             number3 = t;
         }
