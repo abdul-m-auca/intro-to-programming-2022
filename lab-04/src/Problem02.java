@@ -15,6 +15,5 @@ public class Problem02 {
             else if (month == 12 || month == 1 || month ==2) {
                 System.out.println("Fall");
                 else i(month == 12 || month == 1 || month ==2) {
-                    System.out.println("Winter");
-    }
+                    System.out.println("Winter");    }
 }
