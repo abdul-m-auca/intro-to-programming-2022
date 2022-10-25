@@ -5,7 +5,6 @@ public class Problem32 {
         Scanner input = new Scanner(System.in);
 
         String month = input.next();
-
         int day = input.nextInt();
 
         if (month.contains("OCT") && day == 31 || month.contains("DEC") && day == 25) {
