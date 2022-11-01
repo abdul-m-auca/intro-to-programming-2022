@@ -31,7 +31,8 @@ public class Problem09 {
             boolean win = (user == 0 && computer == 2) ||
                     (user == 1 && computer == 0) ||
                     (user == 2 && computer == 1);
-
+            if (win)
+                System.out.println(". You won");
             else
                 System.out.println(". You lose");
         }
