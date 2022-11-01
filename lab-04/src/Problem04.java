@@ -23,7 +23,7 @@ public class Problem04 {
                 System.out.println("You are a total newbie ");
                 break;
             default:
-                System.out.println("Incorrect level number" + level);
+                System.out.println("Incorrect level number " + level);
                 break;
         }
     }

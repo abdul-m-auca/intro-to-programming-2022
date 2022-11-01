@@ -7,6 +7,7 @@ public class Problem20 {
         int number = input.nextInt();
 
         int result = (number >= 5550000) && (number < 5560000) ? 1 : 0;
+
         System.out.print(result);
     }
 }
