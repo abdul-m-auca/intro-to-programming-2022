@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Problem06 {
     public static void main(String[] args) {
         //Create new Scanner object
@@ -10,7 +11,7 @@ public class Problem06 {
 
         // convert celsius to Fahrenheit
 
-        double Fahrenheit =9.0/5 *Celsius +32;
+        double Fahrenheit = 9.0 / 5 * Celsius + 32;
         // Display results
         System.out.println(Celsius + " celsius is " + Fahrenheit + " Fahrenheit ");
 
