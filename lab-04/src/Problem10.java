@@ -1,31 +1,26 @@
 import java.util.Scanner;
 
 public class Problem10 {
-    /** Main method */
+
     public static void main(String[] args) {
-        int[] deck; // Create array
+        int[] deck;
 
         do {
-            // Initialize deck
             deck = new int[52];
 
-            // Pick four cards
             pickFourCards(deck);
 
         } while (sum(deck) != 24);
 
-        // Display the number of picks that yields the sum 24
+
         print(deck);
     }
-
-    /** pickFourCards randomly picks four cards */
     public static void pickFourCards(int[] deck) {
         for (int i = 0; i < 4; i++) {
             deck[(int)(Math.random() * 52)]++;
         }
     }
 
-    /** sum computes the sum of cards picked */
     public static int sum(int[] deck) {
         int sum = 0;
         for (int i = 0; i < deck.length; i++) {
@@ -34,7 +29,6 @@ public class Problem10 {
         return sum;
     }
 
-    /** print displays the number of picks */
     public static void print(int[] deck) {
         String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9",
                 "10", "Jack", "Queen", "King"};
