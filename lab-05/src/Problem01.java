@@ -8,6 +8,7 @@ public class Problem01 {
         int nGrades = 0;
         int grade = input.nextInt();
 
+
         while (grade != 0) {
             sum += grade;
             ++nGrades;
