@@ -36,7 +36,8 @@ public class Problem05 {
             case 11:
                 System.out.println("Number of days: 30");
             default:
-                System.out.println(" Number of days: " + (year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? 29 : 28));
+                boolean isLeapYear = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+                System.out.println(" Number of days: " + (isLeapYear ? 29 : 28));
                 /*if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
                     System.out.println("Number of days: 29");
                 } else {
