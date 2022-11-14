@@ -11,15 +11,12 @@ public class Problem05 {
             System.out.println("Incorrect number of year " + year);
             System.exit(1);
         }
-        System.out.print("Months? ");
-
+        System.out.print("Month? ");
         int month = input.nextInt();
-
         if (month < 1 || 12 < month) {
             System.out.println("Incorrect number of year " + year);
             System.exit(1);
         }
-
         switch (month) {
             case 1:
             case 3:
@@ -37,12 +34,7 @@ public class Problem05 {
                 System.out.println("Number of days: 30");
             default:
                 boolean isLeapYear = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
-                System.out.println(" Number of days: " + (isLeapYear ? 29 : 28));
-                /*if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-                    System.out.println("Number of days: 29");
-                } else {
-                    System.out.println("Number of days: 28");
-                }*/
+                System.out.println("Number of days: " + (isLeapYear ? 29 : 28));
                 break;
         }
     }
