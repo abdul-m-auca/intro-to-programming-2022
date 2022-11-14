@@ -13,5 +13,13 @@ public class Problem01 {
             ++nGrades;
             grade = input.nextInt();
         }
+
+        if (grade != 0) {
+            System.out.printf("%.1f%n", sum / nGrades);
+        } else {
+            System.out.println("No data");
+        }
     }
 }
+
+
