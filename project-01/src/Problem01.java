@@ -7,8 +7,6 @@ public class Problem01 extends PApplet {
     float dx;
     float dy;
 
-    float msgSize = 32;
-    float dMsgSize = 2;
 
     public void settings() {
         fullScreen();
@@ -26,9 +24,6 @@ public class Problem01 extends PApplet {
 
     public void draw() {
         //background(0, 0, 0);
-        textSize(msgSize);
-        fill(255, 0, 0);
-        text("Hello, Processing!!!", width / 2f, height / 2);
         fill(0, 0, 0, 30);
         rect(0, 0, width, height);
         fill(0, 0, 255);
@@ -51,10 +46,6 @@ public class Problem01 extends PApplet {
         if (y < 0) {
             y = 0;
             dy = -dy;
-        }
-        msgSize += dMsgSize;
-        if (msgSize < 20 || 80 <= msgSize) {
-            dMsgSize = -dMsgSize;
         }
 
     }
