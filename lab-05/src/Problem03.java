@@ -25,7 +25,6 @@ public class Problem03 {
             ++i;
         }
         System.out.println("Number of correct: " + nCorrectAnswers);
-        System.out.println("Number of incorrect: " + (nTests - nCorrectAnswers);
+        System.out.println("Number of incorrect: " + (nTests - nCorrectAnswers));
     }
-
 }
