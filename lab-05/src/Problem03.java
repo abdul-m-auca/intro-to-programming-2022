@@ -17,7 +17,7 @@ public class Problem03 {
         while (i < nTests) {
             int op1 = -50 + rnd.nextInt(101);
             int op2 = -50 + rnd.nextInt(101);
-            System.out.printf("%d + %d = ");
+            System.out.printf("%d + %d = ", op1, op2);
             int answer = input.nextInt();
             if (answer == op1 + op2) {
                 ++nCorrectAnswers;
