@@ -7,13 +7,16 @@ public class Problem01 extends PApplet {
     float dx;
     float dy;
 
+    float msgSize = 32;
+    float dMsgSize = 2;
+
     public void settings() {
         fullScreen();
-        textSize(72);
-        textAlign(CENTER, CENTER);
     }
 
     public void setup() {
+        textAlign(CENTER, CENTER);
+
         x = width / 2f;
         y = height / 2f;
         dx = random(-10, 10);
@@ -23,6 +26,7 @@ public class Problem01 extends PApplet {
 
     public void draw() {
         //background(0, 0, 0);
+        textSize(msgSize);
         fill(255, 0, 0);
         text("Hello, Processing!!!", width / 2f, height / 2);
         fill(0, 0, 0, 30);
@@ -30,7 +34,6 @@ public class Problem01 extends PApplet {
         fill(0, 0, 255);
         noStroke();
         circle(x, y, 50);
-
         x += dx;
         if (x >= width) {
             x = width - 1;
@@ -41,14 +44,19 @@ public class Problem01 extends PApplet {
             dx = -dx;
         }
         y += dy;
-        if (x >= height) {
-            x = height - 1;
+        if (y >= height) {
+            y = height - 1;
             dy = -dy;
         }
         if (y < 0) {
             y = 0;
             dy = -dy;
         }
+        msgSize += dMsgSize;
+        if (msgSize < 20 || 80 <= msgSize) {
+            dMsgSize = -dMsgSize;
+        }
+
     }
 
     public static void main(String[] args) {
