@@ -1,11 +1,17 @@
 import processing.core.*;
 
 public class Problem01 extends PApplet {
-    float x;
-    float y;
+    float xCenter;
+    float yCenter;
 
+    float xRight;
+    float xLeft;
+
+    float yTop;
+    float yBottom;
     float dx;
     float dy;
+    float radius;
 
 
     public void settings() {
@@ -15,36 +21,60 @@ public class Problem01 extends PApplet {
     public void setup() {
         textAlign(CENTER, CENTER);
 
-        x = width / 2f;
-        y = height / 2f;
-        dx = random(-10, 10);
-        dy = random(-10, 10);
-        frameRate(40);
+        xCenter = width / 2f;
+        yCenter = height / 2f;
+        xRight = xCenter + width / 4f;
+        xLeft = xCenter - width / 4f;
+        yTop = yCenter - height / 4f;
+        yBottom = yCenter + height / 4f;
+        dx = 10;
+        dy = 14;
+        frameRate(60);
+        radius = 40;
     }
 
     public void draw() {
-        //background(0, 0, 0);
-        fill(0, 0, 0, 30);
+        //background should be black;
+        fill(0, 0, 0, 40);
         rect(0, 0, width, height);
+        //Center circle
+        fill(255, 0, 255);
+        noStroke();
+        circle(xCenter, yCenter, 50);
+        //top right circle
+        fill(0, 255, 0);
+        noStroke();
+        circle(xRight, yTop, radius);
+        //bottom right circle
+        fill(255, 0, 0);
+        noStroke();
+        circle(xRight, yBottom, radius);
+        //top left circle
         fill(0, 0, 255);
         noStroke();
-        circle(x, y, 50);
-        x += dx;
-        if (x >= width) {
-            x = width - 1;
+        circle(xLeft, yTop, radius);
+        //bottom left circle
+        fill(255, 255, 0);
+        noStroke();
+        circle(xLeft, yBottom, radius);
+        //the movement of circles on x-axis
+        xCenter += dx;
+        xRight += dx;
+        xLeft += dx;
+        if (xRight >= width) {
             dx = -dx;
         }
-        if (x < 0) {
-            x = 0;
+        if (xLeft <= 0) {
             dx = -dx;
         }
-        y += dy;
-        if (y >= height) {
-            y = height - 1;
+        //circles on the y-axis
+        yCenter += dy;
+        yTop += dy;
+        yBottom += dy;
+        if (yBottom >= height) {
             dy = -dy;
         }
-        if (y < 0) {
-            y = 0;
+        if (yTop <= 0) {
             dy = -dy;
         }
 
