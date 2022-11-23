@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Problem05 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -7,8 +8,10 @@ public class Problem05 {
         int n = input.nextInt();
         int allowedWeight = (g - t) * 9 / 10;
         int overallExtraWeight = 0;
-        for (int i =0; i < n; i++ ){
+        for (int i = 0; i < n; i++) {
             int extraWeight = input.nextInt();
             overallExtraWeight += extraWeight;
+        }
+        System.out.println(allowedWeight - overallExtraWeight);
     }
 }
