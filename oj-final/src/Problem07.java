@@ -18,6 +18,7 @@ public class Problem07{
                 A -= b;
             }
         }
+
         System.out.println(A + "\n" + B);
         in.close();
 
