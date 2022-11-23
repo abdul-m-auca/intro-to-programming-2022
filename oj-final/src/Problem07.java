@@ -1,26 +1,22 @@
-import java.util.*;
-import java.io.*;
+import java.util.Scanner;
 
-public class Problem07{
-    static int A = 100;
-    static int B = 100;
-    public static void main(String[] args) throws IOException{
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(in.readLine());
-        for(int i = 0; i < N; i++){
-            String input = in.readLine();
-            StringTokenizer st = new StringTokenizer(input);
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-            if(a > b){
-                B -= a;
-            }else if(b > a){
-                A -= b;
+public class Problem07 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int rounds = input.nextInt();
+        int AllAntoniosPoints = 100;
+        int AllDavidPoints = 100;
+        for (int i = 0; i < rounds; i++) {
+            int antoniosPoints = input.nextInt();
+            int davidsPoints = input.nextInt();
+            if (antoniosPoints > davidsPoints) {
+                AllDavidPoints -= antoniosPoints;
+            } else if (antoniosPoints < davidsPoints) {
+                AllAntoniosPoints -= davidsPoints;
+
             }
         }
-
-        System.out.println(A + "\n" + B);
-        in.close();
-
+        System.out.println(AllAntoniosPoints);
+        System.out.println(AllDavidPoints);
     }
 }
