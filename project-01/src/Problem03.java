@@ -21,18 +21,18 @@ public class Problem03 extends PApplet {
 
     public void setup() {
         noStroke();
-        rectWidth = width / 4f;
-        rectHeight = height / 4f;
+        rectWidth = width / 6f;
+        rectHeight = height / 6f;
         rectX = width / 2f - rectWidth / 2f;
-        rectY = height / 2f - rectHeight / 2f;
+        rectY = height / 4f - rectHeight / 4f;
 
         circleX = width / 4f;
-        circleY = height / 4f;
+        circleY = height / 3.5f;
         circleR = height / 10f;
         frameRate(30);
 
-        circleX1 = width / 2f;
-        circleY1 = height / 2f;
+        circleX1 = width / 1.35f;
+        circleY1 = height / 3.5f;
         circleR1 = height / 10f;
         frameRate(30);
     }
