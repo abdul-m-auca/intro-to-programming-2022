@@ -55,12 +55,24 @@ public class Problem04 extends PApplet {
         scoreSize = min(width, height) / 25f;
 
         score = 0;
-        frameRate(13);
-
-
+        frameRate(11);
     }
 
     public void draw() {
+        fill(0, 30);
+        rect(0, 0, width, height);
+
+        //draw the table
+        for (int row = 0; row < gridSize; row++) {
+            for (int col = 0; col < gridSize; col++) {
+                stroke(125, 125, 255);
+                strokeWeight(2);
+                square(gridX + cellSize * col, gridY + cellSize * row, cellSize);
+            }
+        }
+
+        //drawing snake
+
         fill(255, 0, 0);
         noStroke();
         circle(snakeX, snakeY, radius * 2);
@@ -98,6 +110,7 @@ public class Problem04 extends PApplet {
         if (abs(targetX - snakeX) < 1e-3 && abs(targetY - snakeY) < 1e-3) {
             targetX = gridX + (int) random(gridSize) * cellSize + radius;
             targetY = gridY + (int) random(gridSize) * cellSize + radius;
+            score++;
         }
 
         //draw the message
