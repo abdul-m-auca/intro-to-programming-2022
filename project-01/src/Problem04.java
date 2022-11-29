@@ -2,12 +2,25 @@ import processing.core.PApplet;
 
 public class Problem04 extends PApplet {
 
-    final float SQUARES_IN_COLUMN = 12;
-    final float CUBES_IN_ROW = 15;
+    int gridSize;
+    float cellSize;
+    float gridX;
+    float gridY;
+    float radius;
+    float snakeX;
+    float snakeY;
+    float dSnakeXY;
+    float targetX;
+    float targetY;
+    float msgX;
+    float msgY;
+    float scoreX;
+    float scoreY;
+    float msgSize;
+    float scoreSize;
+    int score;
+    String scoreStr;
 
-    float size, xLeft, yUpper, rightBorder, leftBorder, upBorder, downBorder;
-    float circleX, circleY, dx, dy;
-    String s;
 
     public void settings() {
         fullScreen();
@@ -15,94 +28,88 @@ public class Problem04 extends PApplet {
 
     public void setup() {
 
-// maintaining the table
+        // maintaining the table
+        gridSize = 12;
+        cellSize = min(width, height) / 17f;
+        gridX = (width - cellSize * gridSize) / 2f;
+        gridY = (height - cellSize * gridSize) / 2f;
 
-        size = width / 30;
-        xLeft = 8 * size;
-        yUpper = 3 * size;
 
-        leftBorder = xLeft + size;
-        rightBorder = width - leftBorder;
-        upBorder = yUpper + size;
-        downBorder = height - upBorder;
+        // maintaining the snake
+        radius = cellSize / 2f;
+        snakeX = gridX + radius;
+        snakeY = gridY + radius;
+        dSnakeXY = radius * 2;
 
-// maintaining the snake
+        //target parameter
+        targetX = gridX + (int) random(gridSize) * cellSize + radius;
+        targetY = gridY + (int) random(gridSize) * cellSize + radius;
 
-        circleX = xLeft + size / 2;
-        circleY = yUpper + size / 2;
-        dx = 0;
-        dy = 0;
-        frameRate(20);
-        background(0);
-
-        s = "Press Arrow buttons";
+        // text parameter
         textAlign(CENTER, CENTER);
-        textSize(25);
+        msgX = width / 2f;
+        msgY = (height - cellSize * gridSize) / 4f;
+        scoreX = width / 2f;
+        scoreY = height - (height - cellSize * gridSize) / 4f;
+        msgSize = min(width, height) / 32f;
+        scoreSize = min(width, height) / 25f;
+
+        score = 0;
+        frameRate(13);
+
 
     }
 
     public void draw() {
-
-        fill(0, 0, 0);
-        rect(0, 0, width, yUpper - 10);
         fill(255, 0, 0);
-        text(s, width / 2, 2 * size);
-
-// creating table
-
-        fill(0, 0, 0, 30);
-        stroke(0, 0, 650);
-        strokeWeight(1);
-
-        for (int row = 0; row < SQUARES_IN_COLUMN; row++) {
-            for (int col = 0; col < CUBES_IN_ROW; col++) {
-                square(xLeft + col * size, yUpper + row * size, size);
-            }
-        }
-
-// drawing the snake (circle)
-
         noStroke();
-        fill(255, 0, 0);
-        circle(circleX, circleY, size);
-        circleX += dx;
-        circleY += dy;
+        circle(snakeX, snakeY, radius * 2);
 
-// showing borders of the snake
 
-        if (circleX > rightBorder || circleX < leftBorder) {
-            dx = 0;
+        //snake movement
+        if (keyCode == UP) {
+            if (snakeY - dSnakeXY > gridY) {
+                snakeY -= dSnakeXY;
+            }
         }
-        if (circleY < upBorder || circleY > downBorder) {
-            dy = 0;
+        if (keyCode == DOWN) {
+            if (snakeY + dSnakeXY < gridY + cellSize * gridSize) {
+                snakeY += dSnakeXY;
+            }
         }
-
-    }
-
-// what direction the snake goes
-
-    public void keyReleased() {
-
-        if (key == CODED) {
-            if (keyCode == RIGHT && circleX < rightBorder) {
-                dx = size;
-                dy = 0;
-                s = "You pressed button: RIGHT";
-            } else if (keyCode == LEFT && circleX > leftBorder) {
-                dx = -size;
-                dy = 0;
-                s = "You pressed button: LEFT";
-            } else if (keyCode == UP && circleY > upBorder) {
-                dy = -size;
-                dx = 0;
-                s = "You pressed button: UP";
-            } else if (keyCode == DOWN && circleY < downBorder) {
-                dy = size;
-                dx = 0;
-                s = "You pressed button: DOWN";
+        if (keyCode == RIGHT) {
+            if (snakeX + dSnakeXY < gridX + cellSize * gridSize) {
+                snakeX += dSnakeXY;
+            }
+        }
+        if (keyCode == LEFT) {
+            if (snakeX - dSnakeXY > gridX) {
+                snakeX -= dSnakeXY;
             }
         }
 
+        // draw the target
+        fill(255, 255, 0);
+        noStroke();
+        circle(targetX, targetY, radius * 2);
+
+        //target appear at a random location
+
+        if (abs(targetX - snakeX) < 1e-3 && abs(targetY - snakeY) < 1e-3) {
+            targetX = gridX + (int) random(gridSize) * cellSize + radius;
+            targetY = gridY + (int) random(gridSize) * cellSize + radius;
+        }
+
+        //draw the message
+        fill(255, 255, 255);
+        textSize(msgSize);
+        text("Collect Yellow Circles using Arrow Keys", msgX, msgY);
+
+        //display the score
+        scoreStr = String.format("Score: %d", score);
+        textSize(scoreSize);
+        fill(255, 255, 255);
+        text(scoreStr, scoreX, scoreY);
     }
 
     public static void main(String[] args) {
