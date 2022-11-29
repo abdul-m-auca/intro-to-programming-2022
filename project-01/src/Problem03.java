@@ -27,7 +27,7 @@ public class Problem03 extends PApplet {
     public void setup() {
         noStroke();
         strokeWeight(4);
-        textSize(25);
+        textSize(30);
         textAlign(CENTER, CENTER);
 
         rectWidth = width / 6f;
