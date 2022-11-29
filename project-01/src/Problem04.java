@@ -2,7 +2,7 @@ import processing.core.PApplet;
 
 public class Problem04 extends PApplet {
 
-    int gridSize;
+    int tableSize;
     float cellSize;
     float gridX;
     float gridY;
@@ -29,10 +29,10 @@ public class Problem04 extends PApplet {
     public void setup() {
 
         // maintaining the table
-        gridSize = 12;
+        tableSize = 12;
         cellSize = min(width, height) / 17f;
-        gridX = (width - cellSize * gridSize) / 2f;
-        gridY = (height - cellSize * gridSize) / 2f;
+        gridX = (width - cellSize * tableSize) / 2f;
+        gridY = (height - cellSize * tableSize) / 2f;
 
 
         // maintaining the snake
@@ -42,15 +42,15 @@ public class Problem04 extends PApplet {
         dSnakeXY = radius * 2;
 
         //target parameter
-        targetX = gridX + (int) random(gridSize) * cellSize + radius;
-        targetY = gridY + (int) random(gridSize) * cellSize + radius;
+        targetX = gridX + (int) random(tableSize) * cellSize + radius;
+        targetY = gridY + (int) random(tableSize) * cellSize + radius;
 
         // text parameter
         textAlign(CENTER, CENTER);
         msgX = width / 2f;
-        msgY = (height - cellSize * gridSize) / 4f;
+        msgY = (height - cellSize * tableSize) / 4f;
         scoreX = width / 2f;
-        scoreY = height - (height - cellSize * gridSize) / 4f;
+        scoreY = height - (height - cellSize * tableSize) / 4f;
         msgSize = min(width, height) / 32f;
         scoreSize = min(width, height) / 25f;
 
@@ -63,8 +63,8 @@ public class Problem04 extends PApplet {
         rect(0, 0, width, height);
 
         //draw the table
-        for (int row = 0; row < gridSize; row++) {
-            for (int col = 0; col < gridSize; col++) {
+        for (int row = 0; row < tableSize; row++) {
+            for (int col = 0; col < tableSize; col++) {
                 stroke(125, 125, 255);
                 strokeWeight(2);
                 square(gridX + cellSize * col, gridY + cellSize * row, cellSize);
@@ -85,12 +85,12 @@ public class Problem04 extends PApplet {
             }
         }
         if (keyCode == DOWN) {
-            if (snakeY + dSnakeXY < gridY + cellSize * gridSize) {
+            if (snakeY + dSnakeXY < gridY + cellSize * tableSize) {
                 snakeY += dSnakeXY;
             }
         }
         if (keyCode == RIGHT) {
-            if (snakeX + dSnakeXY < gridX + cellSize * gridSize) {
+            if (snakeX + dSnakeXY < gridX + cellSize * tableSize) {
                 snakeX += dSnakeXY;
             }
         }
@@ -108,8 +108,8 @@ public class Problem04 extends PApplet {
         //target appear at a random location
 
         if (abs(targetX - snakeX) < 1e-3 && abs(targetY - snakeY) < 1e-3) {
-            targetX = gridX + (int) random(gridSize) * cellSize + radius;
-            targetY = gridY + (int) random(gridSize) * cellSize + radius;
+            targetX = gridX + (int) random(tableSize) * cellSize + radius;
+            targetY = gridY + (int) random(tableSize) * cellSize + radius;
             score++;
         }
 
