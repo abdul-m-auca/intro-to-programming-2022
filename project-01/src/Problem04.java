@@ -23,6 +23,7 @@ public class Problem04 extends PApplet {
 
 
     public void settings() {
+
         fullScreen();
     }
 
