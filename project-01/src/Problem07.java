@@ -62,11 +62,17 @@ public class Problem07 extends PApplet {
         fill(0, 0, 255);
         rotate(alpha);
         circle(400, 0, 2 * EarthR);
-        alpha += 2 * PI / 500f;
+        alpha -= 2 * PI / 2000f;
 
         //moon
 
-        fill(0);
+        pushMatrix();
+        rotate(alpha);
+        fill(255);
+        translate(200, 0, 2 * EarthR);
+        circle(300, 0, 2 * EarthR);
+        alpha += 2 * PI / 300f;
+        popMatrix();
 
 
     }
