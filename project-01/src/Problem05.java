@@ -12,6 +12,9 @@ public class Problem05 extends PApplet {
 
     float msgX;
     float msgY;
+
+    float msgX1;
+    float msgY1;
     float msgSize;
 
     String X1 = "Sun";
@@ -31,12 +34,21 @@ public class Problem05 extends PApplet {
         cellSize = min(width, height) / 15f;
         gridX = (width - cellSize * tableSize) / 2f;
         gridY = (height - cellSize * tableSize) / 2f;
+
+
+        textAlign(CENTER, CENTER);
+        msgX = (width - cellSize * tableSize) / 2f;
+        msgY = (height - cellSize * tableSize) / 300f;
+        msgX1 = (width - cellSize * tableSize) / 2f;
+        msgY1 = (height - cellSize * tableSize) / 300f;
+        msgSize = min(width, height) / 32f;
+
     }
 
     public void draw() {
         background(0, 0, 0);
         translate(width / 2f, height / 2f);
-
+ 
         //table
         pushMatrix();
 
@@ -50,9 +62,13 @@ public class Problem05 extends PApplet {
         popMatrix();
 
         //Text
-        fill(255, 255, 255);
+        pushMatrix();
+        translate(0, -350);
+        fill(255);
         textSize(msgSize);
         text("Sun", msgX, msgY);
+        text("Venus", msgX1, msgY1);
+        popMatrix();
 
 
         //sun
