@@ -1,6 +1,6 @@
 import processing.core.*;
 
-public class Problem05 extends PApplet {
+public class Problem06 extends PApplet {
     float r;
     float alpha = PI / 4f;
     float ex, ey;
@@ -48,7 +48,7 @@ public class Problem05 extends PApplet {
     public void draw() {
         background(0, 0, 0);
         translate(width / 2f, height / 2f);
- 
+
         //table
         pushMatrix();
 
@@ -100,7 +100,7 @@ public class Problem05 extends PApplet {
     }
 
     public static void main(String[] args) {
-        PApplet.main("Problem05");
+        PApplet.main("Problem06");
     }
 
 }
