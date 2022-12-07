@@ -31,9 +31,9 @@ public class Problem43 {
 
         }
         if (isMagic) {
-            System.out.println("Magic");
+            System.out.println("magic");
         } else {
-            System.out.println("not Magic");
+            System.out.println("not magic");
         }
     }
 }
