@@ -1,6 +1,7 @@
 import processing.core.*;
 
 public class Problem06 extends PApplet {
+    final int NUMBER_OF_CIRCLES = 50;
     float r;
     float alpha = PI / 4f;
     float ex, ey;
@@ -9,6 +10,8 @@ public class Problem06 extends PApplet {
     float gridX;
     float gridY;
     float cellSize;
+    float menuWidth;
+    float menuHeight;
 
     float msgX;
     float msgY;
@@ -32,55 +35,47 @@ public class Problem06 extends PApplet {
     public void setup() {
         tableSize = 4;
         cellSize = min(width, height) / 15f;
-        gridX = (width - cellSize * tableSize) / 2f;
-        gridY = (height - cellSize * tableSize) / 2f;
-
+        gridX = width / 7f * 5.5f;
+        gridY = height / 7f;
 
         textAlign(CENTER, CENTER);
-        msgX = (width - cellSize * tableSize) / 2f;
-        msgY = (height - cellSize * tableSize) / 300f;
-        msgX1 = (width - cellSize * tableSize) / 2f;
-        msgY1 = (height - cellSize * tableSize) / 300f;
         msgSize = min(width, height) / 32f;
 
+        menuWidth = width / 7f;
+        menuHeight = height / 15f;
     }
 
     public void draw() {
         background(0, 0, 0);
-        translate(width / 2f, height / 2f);
 
         //table
-        pushMatrix();
-
-        translate(-200, -700);
         for (int row = 0; row < tableSize; row++) {
             stroke(255);
             strokeWeight(2);
             fill(0, 0, 255);
-            rect(gridX + cellSize, gridY + cellSize * row, width / 7f, height / 15f);
+            rect(gridX, gridY + cellSize * row, menuWidth, menuHeight);
         }
-        popMatrix();
 
         //Text
-        pushMatrix();
-        translate(0, -350);
         fill(255);
         textSize(msgSize);
-        text("Sun", msgX, msgY);
-        text("Venus", msgX1, msgY1);
-        popMatrix();
+        text("Sun", gridX + menuWidth / 2f, gridY + menuHeight / 2f);
+        text("Venus", gridX + menuWidth / 2f, gridY + menuHeight + menuHeight / 2f);
 
 
+        translate(width / 2f, height / 2f);
         //sun
         noStroke();
         pushMatrix();
-        fill(255, 255, 0);
-        circle(0, 0, r * 2f);
+//        fill(255, 255, 0);
+//        circle(0, 0, r * 2f);
+        drawConcentricCircles(0, 0, r * 2f, 255, 255, 0);
         popMatrix();
+
         //earth
-        fill(0, 0, 255);
         rotate(alpha);
-        circle(350, 0, r / 1f);
+//        circle(350, 0, r);
+        drawConcentricCircles(350, 0, r, 0, 0, 255);
         alpha += 2 * PI / 200f;
 
         //moon
@@ -97,6 +92,20 @@ public class Problem06 extends PApplet {
         circle(200, 0, r);
 
 
+    }
+
+    void drawConcentricCircles(float x, float y, float r, float redComp, float greenComp, float blueComp) {
+        float dr = r / NUMBER_OF_CIRCLES;
+        float dRedComp = redComp / NUMBER_OF_CIRCLES;
+        float dGreenComp = greenComp / NUMBER_OF_CIRCLES;
+        float dBlueComp = blueComp / NUMBER_OF_CIRCLES;
+
+        for (int i = 0; i < NUMBER_OF_CIRCLES; ++i) {
+//            fill(redComp, greenComp, blueComp);
+            fill(dRedComp + dRedComp * i, dGreenComp + dGreenComp * i, dBlueComp + dBlueComp * i);
+            circle(x, y, 2 * r);
+            r -= dr;
+        }
     }
 
     public static void main(String[] args) {

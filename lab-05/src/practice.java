@@ -1,27 +1,30 @@
-public class Problem08 {
+import java.util.Scanner;
+
+public class practice {
     public static final int TABLE_SIZE = 9;
 
     public static void main(String[] args) {
-        System.out.println("Multiplication table");
+        Scanner input = new Scanner(System.in);
 
-        // Print the top row
-        System.out.print("  ");
+        //mul
+        System.out.println("multiplication table");
+
+        // draw the top
+        System.out.print(" ");
         for (int i = 1; i <= TABLE_SIZE; i++) {
             System.out.printf("%4d", i);
         }
         System.out.println();
 
-        // Print the dividing dashes
+        // draw the dash
         for (int i = 0; i < TABLE_SIZE * 2 + 1; i++) {
-            System.out.print(" -");
+            System.out.printf(" -");
         }
         System.out.println();
 
-        // Print the rows
+        // draw the row
         for (int i = 1; i <= TABLE_SIZE; i++) {
             System.out.printf("%d|", i);
-
-            // Print columns in each row
             for (int j = 1; j <= TABLE_SIZE; j++) {
                 System.out.printf("%4d", i * j);
             }
