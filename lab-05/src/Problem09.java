@@ -1,9 +1,6 @@
 import java.util.Scanner;
 
 public class Problem09 {
-    /**
-     * Main method
-     */
     public static void main(String[] args) {
         // Create a Scanner
         Scanner input = new Scanner(System.in);
@@ -24,11 +21,9 @@ public class Problem09 {
                 isPalindrome = false;
                 break;
             }
-
             low++;
             high--;
         }
-
         if (isPalindrome)
             System.out.println(s + " is a palindrome");
         else
