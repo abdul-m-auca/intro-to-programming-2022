@@ -1,23 +1,30 @@
-import java.util.Scanner;
-
 public class practice {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        final int NUMBER_OF_PRIMES = 50;
+        final int NUMBER_OF_PRIMES_PER_LINE = 10;
 
-        double sum = 0;
-        int nGrade = 0;
-        int grade = input.nextInt();
+        int count = 0;
+        int number = 2;
 
-        while (grade != 0) {
-            sum += grade;
-            ++nGrade;
-            grade = input.nextInt();
-        }
-        if (grade != 0) {
-            System.out.printf("%.1f%n", sum / nGrade);
-        } else {
-            System.out.println("No data");
+        System.out.println(" the number are f0 \n");
+
+        while (count < NUMBER_OF_PRIMES) {
+            boolean isPrime = true;
+
+            for (int divisor = 2; divisor <= number / 2; divisor++) {
+                if (number % divisor == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                count++;
+                if (count % NUMBER_OF_PRIMES_PER_LINE == 0) {
+                    System.out.println(number);
+                } else
+                    System.out.println(number + " ");
+            }
+            number++;
         }
     }
-
 }
