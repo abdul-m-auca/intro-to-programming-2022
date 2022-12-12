@@ -1,30 +1,28 @@
+import java.util.Scanner;
+
 public class practice {
     public static void main(String[] args) {
-        final int NUMBER_OF_PRIMES = 50;
-        final int NUMBER_OF_PRIMES_PER_LINE = 10;
+        Scanner input = new Scanner(System.in);
 
-        int count = 0;
-        int number = 2;
+        System.out.println("Enter a string: ");
+        String s = input.nextLine();
 
-        System.out.println(" the number are f0 \n");
+        int low = 0;
+        int high = s.length() - 1;
 
-        while (count < NUMBER_OF_PRIMES) {
-            boolean isPrime = true;
-
-            for (int divisor = 2; divisor <= number / 2; divisor++) {
-                if (number % divisor == 0) {
-                    isPrime = false;
-                    break;
-                }
+        boolean isPalindrome = true;
+        while (low < high) {
+            if (s.charAt(low) != s.charAt(high)) {
+                isPalindrome = false;
+                break;
             }
-            if (isPrime) {
-                count++;
-                if (count % NUMBER_OF_PRIMES_PER_LINE == 0) {
-                    System.out.println(number);
-                } else
-                    System.out.println(number + " ");
-            }
-            number++;
+            low++;
+            high--;
         }
+        if (isPalindrome) {
+            System.out.println(s + " is a palindrome");
+        } else
+            System.out.println(s + " is not a palindrome");
     }
 }
+
