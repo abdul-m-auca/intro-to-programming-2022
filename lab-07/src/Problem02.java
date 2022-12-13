@@ -16,10 +16,10 @@ public class Problem02 {
     }
 
     static int getNumberOfDays(int year, int month) {
-        int[] nDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31, 30, 31};
+        int[] nDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
         if (isLeapYear(year) && month == 2) {
-            return 28;
+            return 29;
         }
 
         return nDays[month - 1];
