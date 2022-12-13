@@ -12,7 +12,7 @@ public class Problem08 {
         System.out.println();
 
         // Print the dividing dashes
-        for (int i = 0; i < TABLE_SIZE * 2 + 1; i++) {
+        for (int i = 1; i <= TABLE_SIZE * 2 + 1; i++) {
             System.out.print(" -");
         }
         System.out.println();
