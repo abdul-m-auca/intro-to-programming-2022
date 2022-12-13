@@ -1,18 +1,18 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Problem10 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int n = input.nextInt();
-        int k = input.nextInt();
+        int number = input.nextInt();
+        int nShifts = input.nextInt();
 
-        int sum = n;
-
-        for (int i = 0; i < k; i++) {
-            n += 10;
-            sum += n;
+        int shiftySum = number;
+        for (int i = 0; i < nShifts; i++) {
+            number *= 10;
+            shiftySum += number;
         }
-        System.out.println(sum);
+
+        System.out.println(shiftySum);
     }
 }
