@@ -14,10 +14,8 @@ public class Problem06 {
 
         do {
             // Read the next data
-            System.out.print(
-                    "Enter an integer (the input ends if it is 0): ");
+            System.out.print("Enter an integer (the input ends if it is 0): ");
             data = input.nextInt();
-
             sum += data;
         } while (data != 0);
 
