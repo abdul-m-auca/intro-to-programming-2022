@@ -1,58 +1,111 @@
 import processing.core.*;
 
 public class Problem02 extends PApplet {
-    final float max = 180;
-    final float min = 50;
 
-    float start1 = min + (max - min) / 2;
-    float start2 = min + (max - min) / 2;
-    float num1 = 3;
-    float num2 = 3;
     float x;
-    float y;
-    float dx;
-    float dy;
-    float msgSize = 32;
-    float dMsgSize = 2;
+    float yCenter;
+    float yTop;
+    float yBottom;
+    float minMsgSize;
+    float maxMsgSize;
+    float topMsgSize;
+    float centerMsgSize;
+    float bottomMsgSize;
+
+    float dTextSize;
+
+    boolean topMsgAnimation;
+    boolean centerMsgAnimation;
+    boolean bottomMsgAnimation;
+
 
     public void settings() {
         fullScreen();
     }
 
     public void setup() {
-        textAlign(CENTER, CENTER);
-
         x = width / 2f;
-        y = height / 2f;
-        dx = random(-10, 10);
-        dy = random(-10, 10);
-        frameRate(40);
+        yCenter = height / 2f;
+        yTop = yCenter - height / 5f;
+        yBottom = yCenter + height / 5f;
 
+        minMsgSize = min(width, height) / 18f;
+        maxMsgSize = min(width, height) / 7f;
+        topMsgSize = centerMsgSize = bottomMsgSize = minMsgSize;
+        dTextSize = 2;
+        topMsgAnimation = true;
+        centerMsgAnimation = false;
+        bottomMsgAnimation = false;
+
+        frameRate(60);
+        textAlign(CENTER, CENTER);
     }
 
     public void draw() {
         background(0, 0, 0);
-        textSize(msgSize);
-        fill(0, 255, 51);
-        text("Write once!!!", width / 2f, height / 2f);
+
+        // Top red text
         fill(255, 0, 0);
-        text("Java Slogan:", width / 2f, height / 4f);
+        textSize(topMsgSize);
+        text("Java Slogan:", x, yTop);
+
+        // Center green text
+        fill(0, 255, 0);
+        textSize(centerMsgSize);
+        text("Write once,", x, yCenter);
+
+        // Bottom blue text
         fill(0, 0, 255);
-        text("run anywhere", width / 2f, height - height / 4f);
+        textSize(bottomMsgSize);
+        text("run anywhere!", x, yBottom);
 
-        msgSize += dMsgSize;
-        if (msgSize < 20 || 100 <= msgSize) {
-            dMsgSize = -dMsgSize;
-        }
-        if (start1 > max) {
-            start1 = max;
-            num1 = -num1;
+        // Animation for top text fragment
+        if (topMsgAnimation) {
+            topMsgSize += dTextSize;
+
+            if (topMsgSize >= maxMsgSize) {
+                dTextSize = -dTextSize;
+            }
+            if (topMsgSize <= minMsgSize) {
+                topMsgSize = minMsgSize;
+                topMsgAnimation = false;
+                centerMsgAnimation = true;
+                dTextSize = -dTextSize;
+            }
         }
 
+        // Animation for center text fragment
+        if (centerMsgAnimation) {
+            centerMsgSize += dTextSize;
+
+            if (centerMsgSize >= maxMsgSize) {
+                dTextSize = -dTextSize;
+            }
+            if (centerMsgSize <= minMsgSize) {
+                centerMsgSize = minMsgSize;
+                centerMsgAnimation = false;
+                bottomMsgAnimation = true;
+                dTextSize = -dTextSize;
+            }
+        }
+
+        // Animation for bottom text fragment
+        if (bottomMsgAnimation) {
+            bottomMsgSize += dTextSize;
+
+            if (bottomMsgSize >= maxMsgSize) {
+                dTextSize = -dTextSize;
+            }
+            if (bottomMsgSize <= minMsgSize) {
+                bottomMsgSize = minMsgSize;
+                bottomMsgAnimation = false;
+                topMsgAnimation = true;
+                dTextSize = -dTextSize;
+            }
+        }
     }
 
     public static void main(String[] args) {
         PApplet.main("Problem02");
     }
-
 }
