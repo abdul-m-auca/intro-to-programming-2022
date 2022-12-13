@@ -15,8 +15,7 @@ public class Problem08 {
         for (int row = 1; row <= n; row++) {
             // Print leading spaces
             for (int i = n; i > row; i--) {
-                // Print as many spaces as the number would take if it was printed,
-                // to properly align the numbers in different rows
+
                 int nDigits = String.format("%d", i).length();
                 for (int j = 0; j < nDigits; j++) {
                     System.out.print(" ");
